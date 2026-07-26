@@ -1,0 +1,19 @@
+{
+  "name": "codrops",
+  "version": "1.0.0",
+  "description": "Infinite slider and image-to-content transitions",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  }
+}
