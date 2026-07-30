@@ -1,267 +1,478 @@
 <!doctype html>
 <html lang="en" class="no-js">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Infinite Slider and Seamless Transitions</title>
-    <link rel="stylesheet" type="text/css" href="src/style.css" />
-  </head>
 
-  <body>
-    <main>
-      <div class="gallery">
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p11/1200/1500"
-              alt="Cliffs falling into a deep blue cove"
-              loading="eager"
-            />
-          </figure>
-          <span>Above the Cove</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Infinite Scroll Gallery with Page Transitions using GSAP</title>
+  <link rel="stylesheet" href="https://use.typekit.net/hrf4hvy.css">
+  <link rel="stylesheet" type="text/css" href="src/style.css" />
+  <link rel="icon" type="image/svg+xml" href="https://tympanus.net/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="https://tympanus.net/favicon/favicon.ico" />
+  <script>document.documentElement.className = 'js';</script>
+  <script src="//tympanus.net/codrops/adpacks/analytics.js"></script>
+</head>
+
+<body class="loading">
+  <main>
+    <header class="frame">
+      <h1 class="frame__title">Infinite Scroll Gallery with Page Transitions using GSAP</h1>
+      <nav class="frame__links">
+        <a href="https://tympanus.net/codrops/?p=">Tutorial</a>
+        <a href="https://tympanus.net/codrops/hub/">All demos</a>
+        <a href="https://github.com/surya-aditya/codrops-infinite-scroll-and-content-transition">GitHub</a>
+      </nav>
+      <nav class="frame__tags">
+        <a href="https://tympanus.net/codrops/hub/tag/scroll/">#scroll</a>
+        <a href="https://tympanus.net/codrops/hub/tag/gsap/">#gsap</a>
+        <a href="https://tympanus.net/codrops/hub/tag/page-transition/">#page-transition</a>
+        <a href="https://tympanus.net/codrops/hub/tag/infinite/">#infinite</a>
+      </nav>
+    </header>
+    <div class="gallery">
+      <figure class="gallery__slide" style="--stagger: -24vw; --img-w: 20vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/1.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p22/1200/1500"
-              alt="Wildflower meadow overlooking the sea"
-              loading="eager"
-            />
-          </figure>
-          <span>Meadow &amp; Sea</span>
+        <figcaption>Inherited Light</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 14vw; --img-w: 10vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/2.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p35/1200/1500"
-              alt="Cuttings in a glass jar against a blue wall"
-              loading="eager"
-            />
-          </figure>
-          <span>Study in Blue</span>
+        <figcaption>Red Earth Theory</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -18vw; --img-w: 23vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/3.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p47/1200/1500"
-              alt="Low evening sun through park trees"
-              loading="eager"
-            />
-          </figure>
-          <span>Last Light</span>
+        <figcaption>Soft Sovereignty</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 22vw; --img-w: 18vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/4.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p53/1200/1500?grayscale"
-              alt="A gull gliding across an overcast sky"
-              loading="eager"
-            />
-          </figure>
-          <span>Drift</span>
+        <figcaption>Gathering Weather</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -26vw; --img-w: 25vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/5.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p66/1200/1500"
-              alt="A bench facing the Manhattan skyline in winter"
-              loading="eager"
-            />
-          </figure>
-          <span>Front Row Seat</span>
+        <figcaption>Worn Horizon</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 28vw; --img-w: 28vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/6.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p71/1200/1500"
-              alt="Hands lacing a pair of worn leather boots"
-              loading="eager"
-            />
-          </figure>
-          <span>Before the Walk</span>
+        <figcaption>The Fifth Fire</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -20vw; --img-w: 16vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/7.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p85/1200/1500"
-              alt="A wooden boardwalk ending in sea fog"
-              loading="eager"
-            />
-          </figure>
-          <span>Into the Fog</span>
+        <figcaption>Ancestor Season</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 8vw; --img-w: 30vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/8.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p92/1200/1500"
-              alt="A snowy ridge above a forested valley"
-              loading="eager"
-            />
-          </figure>
-          <span>Timberline</span>
+        <figcaption>A Field Listening</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -12vw; --img-w: 15vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/9.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p104/1200/1500"
-              alt="A mountain goat standing on a rocky slope"
-              loading="eager"
-            />
-          </figure>
-          <span>The Resident</span>
+        <figcaption>Language of Dust</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 15vw; --img-w: 23vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/10.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p118/1200/1500?grayscale"
-              alt="Weathered rings of an old tree stump"
-              loading="eager"
-            />
-          </figure>
-          <span>Ring Count</span>
+        <figcaption>Between Sweetgrass</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -24vw; --img-w: 24vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/11.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-        <div class="gallery__slide">
-          <figure class="gallery__img-wrapper">
-            <img
-              class="gallery__img"
-              src="https://picsum.photos/seed/p126/1200/1500"
-              alt="A figure in a red coat crossing a snowy field"
-              loading="eager"
-            />
-          </figure>
-          <span>Red in the Snow</span>
+        <figcaption>Open Country</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 26vw; --img-w: 16vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/12.webp"
+               alt="Some image"
+               loading="eager" />
         </div>
-      </div>
-      <div class="content">
-        <div class="content-wrapper">
-          <figure class="content__preview-img">
-            <img alt="" />
-          </figure>
-          <div class="content__group-list">
-            <button class="content__back" type="button">Back (Esc)</button>
-            <div class="content__group" data-index="0">
-              <div class="content__title">Above the Cove</div>
-              <div class="content__description">
-                Late September on the Ionian coast, where the cliffs drop
-                straight into water so deep it reads as ink. We waited an hour
-                for a sailboat to pass through the frame. It never came, and
-                the picture was better for it.
-              </div>
+        <figcaption>The Living Ridge</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -16vw; --img-w: 34vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/13.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>Future Ceremony</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 24vw; --img-w: 13vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/14.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>Holding the West</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -28vw; --img-w: 19vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/15.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>The Quiet Treaty</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 18vw; --img-w: 22vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/16.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>Sky Without Borders</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -10vw; --img-w: 27vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/17.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>Native Modern</figcaption>
+      </figure>
+      <figure class="gallery__slide" style="--stagger: 20vw; --img-w: 18vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/18.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>Stone Kinship</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -22vw; --img-w: 19vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/19.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>Winter Holds</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 16vw; --img-w: 30vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/20.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>The Seventh Path</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -18vw; --img-w: 17vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/21.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>Listening Ground</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 24vw; --img-w: 12vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/22.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>Made of Distance</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: -26vw; --img-w: 23vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/23.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>Names for Rain</figcaption>
+      </figure>
+
+      <figure class="gallery__slide" style="--stagger: 12vw; --img-w: 26vw;">
+        <div class="gallery__img-wrapper">
+          <img
+               class="gallery__img"
+               src="./assets/24.webp"
+               alt="Some image"
+               loading="eager" />
+        </div>
+        <figcaption>Returning North</figcaption>
+      </figure>
+    </div>
+    <div class="content">
+      <div class="content-wrapper">
+        <figure class="content__preview-img">
+          <img alt="" />
+        </figure>
+        <div class="content__group-list">
+          <button class="content__back" type="button">&larr; back [ESC]</button>
+          <div class="content__group" data-index="0">
+            <div class="content__title">Inherited Light</div>
+            <div class="content__description">
+              Before fences divided the prairie, horses transformed life across many Plains Nations, becoming companions in travel, hunting, and ceremony. The opening image returns to that enduring relationship between movement, land, and identity.
             </div>
-            <div class="content__group" data-index="1">
-              <div class="content__title">Meadow &amp; Sea</div>
-              <div class="content__description">
-                A hillside of yellow wildflowers leaning into the wind, the
-                Pacific flat and patient behind them. Shot low in the grass
-                with the sun over one shoulder — the kind of afternoon that
-                makes you forget to check the time.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="1">
+            <div class="content__title">Red Earth Theory</div>
+            <div class="content__description">
+              Every stitch recalls a tradition older than the runway. Indigenous beadwork and embroidery have long carried family histories, regional identities, and stories passed from one generation to the next.
             </div>
-            <div class="content__group" data-index="2">
-              <div class="content__title">Study in Blue</div>
-              <div class="content__description">
-                Two cuttings in a daisy-print jar, a painted wall, and nothing
-                else. An exercise in restraint: one colour, one subject, one
-                soft morning light. The simplest picture in this set took the
-                longest to arrange.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="2">
+            <div class="content__title">Soft Sovereignty</div>
+            <div class="content__description">
+              Contemporary Indigenous fashion refuses to separate heritage from innovation. Here, bold modern forms coexist with an older understanding: sovereignty begins with the freedom to define one's own image.
             </div>
-            <div class="content__group" data-index="3">
-              <div class="content__title">Last Light</div>
-              <div class="content__description">
-                The sun drops behind the rooftops and pours sideways through
-                the park, turning every trunk into a long blue shadow. A
-                single walker crossed the lawn and stitched the whole
-                composition together.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="3">
+            <div class="content__title">Gathering Weather</div>
+            <div class="content__description">
+              Garments shaped by movement echo a life lived close to changing skies. Across generations, clothing has adapted to the landscape rather than asking the landscape to adapt in return.
             </div>
-            <div class="content__group" data-index="4">
-              <div class="content__title">Drift</div>
-              <div class="content__description">
-                A gull riding the updraft over the harbour wall, wings set,
-                going nowhere in particular. Stripped to black and white the
-                sky becomes a single sheet of paper and the bird a pencil
-                mark across it.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="4">
+            <div class="content__title">Worn Horizon</div>
+            <div class="content__description">
+              Wildflowers bloom across lands that remember both abundance and loss. Beauty persists quietly, much like the cultures that continue to flourish despite centuries of attempted erasure.
             </div>
-            <div class="content__group" data-index="5">
-              <div class="content__title">Front Row Seat</div>
-              <div class="content__description">
-                A yellow beanie, a snow-dusted bench, and the whole of Lower
-                Manhattan across the river. Nobody else stopped. The city kept
-                moving on the far shore while this one person let it be
-                scenery for a while.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="5">
+            <div class="content__title">The Fifth Fire</div>
+            <div class="content__description">
+              Many Indigenous teachings describe every generation as a keeper of what comes next. Even the simplest object becomes a reminder that renewal begins with care rather than spectacle.
             </div>
-            <div class="content__group" data-index="6">
-              <div class="content__title">Before the Walk</div>
-              <div class="content__description">
-                Worn leather, double knots, coffee going cold on the step.
-                The slow ritual before a long day on the trail deserves a
-                photograph as much as the summit does — maybe more, since
-                it's the part you can keep.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="6">
+            <div class="content__title">Ancestor Season</div>
+            <div class="content__description">
+              Community has always embraced many voices rather than one. Individual expression sits comfortably beside collective identity, each strengthening the other instead of competing with it.
             </div>
-            <div class="content__group" data-index="7">
-              <div class="content__title">Into the Fog</div>
-              <div class="content__description">
-                The boardwalk runs twenty metres and then simply stops being
-                visible. Sea and sky traded places all morning. Walking out
-                to the end felt like stepping off the edge of a map, in the
-                best possible way.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="7">
+            <div class="content__title">A Field Listening</div>
+            <div class="content__description">
+              Red recalls ochre, earth, trade cloth, and ceremony without belonging to any single tradition. Colour becomes memory carried across generations instead of preserved behind glass.
             </div>
-            <div class="content__group" data-index="8">
-              <div class="content__title">Timberline</div>
-              <div class="content__description">
-                The exact line where the forest gives up and the snow takes
-                over, drawn across the mountain like a tide mark. Ten minutes
-                after this frame the cloud closed in and the ridge was gone
-                for the rest of the day.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="8">
+            <div class="content__title">Language of Dust</div>
+            <div class="content__description">
+              More than a hundred Indigenous languages are spoken across North America today. Each surviving language offers another way of understanding landscape, kinship, and the passing of seasons.
             </div>
-            <div class="content__group" data-index="9">
-              <div class="content__title">The Resident</div>
-              <div class="content__description">
-                He was there before us and he was there when we left,
-                sure-footed on scree that had us on all fours. Larches going
-                gold behind him, first snow above. The mountain's actual
-                owner, briefly tolerating visitors.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="9">
+            <div class="content__title">Between Sweetgrass</div>
+            <div class="content__description">
+              Sweetgrass has long been gathered across many Nations as a symbol of kindness, gratitude, and connection. Its gentle presence reminds us that strength often arrives without raising its voice.
             </div>
-            <div class="content__group" data-index="10">
-              <div class="content__title">Ring Count</div>
-              <div class="content__description">
-                A century of weather written in concentric circles, read
-                fingertip-first on a cold morning. In monochrome the grain
-                turns to topography — ridgelines and valleys of a landscape
-                small enough to sit on.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="10">
+            <div class="content__title">Open Country</div>
+            <div class="content__description">
+              Contemporary Indigenous artists increasingly reclaim portraiture on their own terms. The gaze no longer documents a disappearing people; it reflects a living culture shaping its own future.
             </div>
-            <div class="content__group" data-index="11">
-              <div class="content__title">Red in the Snow</div>
-              <div class="content__description">
-                One figure, one red coat, and a field the wind had scoured
-                almost white. Every winter photograph needs a single warm
-                thing to measure the cold against — she carried it across
-                the frame for us.
-              </div>
+          </div>
+
+          <div class="content__group" data-index="11">
+            <div class="content__title">The Living Ridge</div>
+            <div class="content__description">
+              The horizon remains one of the oldest teachers. Across countless Nations, stories, navigation, and ceremony begin not inside buildings but in relationship with the land itself.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="12">
+            <div class="content__title">Future Ceremony</div>
+            <div class="content__description">
+              For generations, boarding schools attempted to erase Indigenous identity by replacing language, clothing, and tradition. Today's designers answer not with nostalgia, but with confident reinvention.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="13">
+            <div class="content__title">Holding the West</div>
+            <div class="content__description">
+              Monochrome becomes an act of restraint. Contemporary Native fashion often values material, silhouette, and story over spectacle, allowing craftsmanship to speak before symbolism.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="14">
+            <div class="content__title">The Quiet Treaty</div>
+            <div class="content__description">
+              History remembers broken treaties; communities remember those who endured them. This portrait looks forward without forgetting the promises that continue to shape Indigenous life today.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="15">
+            <div class="content__title">Sky Without Borders</div>
+            <div class="content__description">
+              The sky has never recognized the borders drawn across maps. For many Indigenous worldviews, belonging begins with relationship—to place, to people, and to all living things.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="16">
+            <div class="content__title">Native Modern</div>
+            <div class="content__description">
+              Indigenous fashion is among the fastest-evolving voices in contemporary design, proving that tradition is not the opposite of modernity. It is the foundation from which modernity grows.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="17">
+            <div class="content__title">Stone Kinship</div>
+            <div class="content__description">
+              Stone remembers what people often forget. Across many Indigenous traditions, the landscape is not scenery but a relative, carrying stories older than any written archive.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="18">
+            <div class="content__title">Winter Holds</div>
+            <div class="content__description">
+              Survival has always been a form of beauty. Winter demanded ingenuity, patience, and deep communal knowledge—qualities still reflected in contemporary Indigenous design.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="19">
+            <div class="content__title">The Seventh Path</div>
+            <div class="content__description">
+              Many Indigenous teachings ask each generation to consider those yet to come. Fashion, too, becomes an inheritance when made with responsibility rather than excess.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="20">
+            <div class="content__title">Listening Ground</div>
+            <div class="content__description">
+              To walk the land is also to listen. Traditional ecological knowledge has shaped sustainable relationships with forests, rivers, and plains for countless generations.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="21">
+            <div class="content__title">Made of Distance</div>
+            <div class="content__description">
+              Forced removals separated many Nations from their ancestral territories, yet identity endured. Home has always been carried in language, family, ceremony, and memory as much as geography.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="22">
+            <div class="content__title">Names for Rain</div>
+            <div class="content__description">
+              Indigenous languages often describe weather with remarkable precision, reflecting generations spent observing subtle changes in the natural world. Every season has its own vocabulary.
+            </div>
+          </div>
+
+          <div class="content__group" data-index="23">
+            <div class="content__title">Returning North</div>
+            <div class="content__description">
+              Across North America, a new generation of Indigenous artists and designers is reclaiming narrative through fashion, proving that culture is strongest when it continues to evolve instead of standing still.
             </div>
           </div>
         </div>
       </div>
-    </main>
-    <script type="module" src="src/index.js"></script>
-  </body>
+    </div>
+  </main>
+  <script type="module" src="src/index.js"></script>
+  <script src="https://tympanus.net/codrops/adpacks/cda_sponsor.js"></script>
+</body>
+
 </html>

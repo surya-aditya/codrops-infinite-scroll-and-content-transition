@@ -13,7 +13,7 @@ export default class Reveal {
       const wrapper = slide.querySelector(".gallery__img-wrapper");
 
       // Split the caption into characters
-      const chars = new SplitText(slide.querySelector("span"), {
+      const chars = new SplitText(slide.querySelector("figcaption"), {
         type: "chars",
       }).chars;
 
@@ -32,9 +32,7 @@ export default class Reveal {
       .sort((a, b) => a.top - b.top)
       .forEach((change, i) => this.show(change.el, i * 0.12, immediate));
 
-    changes
-      .filter((change) => !change.visible)
-      .forEach((change) => this.hide(change.el));
+    changes.filter((change) => !change.visible).forEach((change) => this.hide(change.el));
   }
 
   /** Fade the image in, then fade the caption in character by character */

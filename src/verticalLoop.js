@@ -31,16 +31,14 @@ export default function verticalLoop(items, config) {
   const pixelsPerSecond = (config.speed || 1) * 100;
 
   // Round yPercent values so items land on whole pixels
-  const snap =
-    config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1);
+  const snap = config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1);
 
   // Measure each item and convert its y into a height-relative yPercent
   gsap.set(items, {
     yPercent: (i, el) => {
       const h = (heights[i] = parseFloat(gsap.getProperty(el, "height", "px")));
       yPercents[i] = snap(
-        (parseFloat(gsap.getProperty(el, "y", "px")) / h) * 100 +
-          gsap.getProperty(el, "yPercent"),
+        (parseFloat(gsap.getProperty(el, "y", "px")) / h) * 100 + gsap.getProperty(el, "yPercent"),
       );
       return yPercents[i];
     },
@@ -52,8 +50,7 @@ export default function verticalLoop(items, config) {
     items[length - 1].offsetTop +
     (yPercents[length - 1] / 100) * heights[length - 1] -
     startY +
-    items[length - 1].offsetHeight *
-      gsap.getProperty(items[length - 1], "scaleY") +
+    items[length - 1].offsetHeight * gsap.getProperty(items[length - 1], "scaleY") +
     (parseFloat(config.paddingBottom) || 0);
 
   // Two tweens per item: exit top, then re-enter from the bottom
@@ -67,8 +64,7 @@ export default function verticalLoop(items, config) {
     const distanceToStart = item.offsetTop + curY - startY;
 
     // Distance until fully off-screen top
-    const distanceToLoop =
-      distanceToStart + heights[i] * gsap.getProperty(item, "scaleY");
+    const distanceToLoop = distanceToStart + heights[i] * gsap.getProperty(item, "scaleY");
 
     // Travel up until fully off-screen
     tl.to(
@@ -82,9 +78,7 @@ export default function verticalLoop(items, config) {
       // Then re-enter from the bottom end of the container
       item,
       {
-        yPercent: snap(
-          ((curY - distanceToLoop + totalHeight) / heights[i]) * 100,
-        ),
+        yPercent: snap(((curY - distanceToLoop + totalHeight) / heights[i]) * 100),
       },
       {
         yPercent: yPercents[i],

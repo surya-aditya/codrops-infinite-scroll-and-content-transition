@@ -1,48 +1,51 @@
+import imagesLoaded from "imagesloaded";
+
 import Reveal from "./Reveal.js";
 import Slider from "./Slider.js";
 import Transition from "./Transition.js";
 
-// Image-to-content transition; hands the gallery back when it is done
-const transition = new Transition({ onClose: () => slider.start() });
-
-// Slide reveals, created first so it can catch the slider's initial update
-const reveal = new Reveal();
-
-// Infinite scroll-driven slider; reports viewport enters/leaves to the reveal
-const slider = new Slider({
-  enabled: () => transition.state === "closed",
-  onToggle: (changes, immediate) => reveal.toggle(changes, immediate),
+imagesLoaded(document.body, () => {
+  document.body.classList.remove("loading");
+  init();
 });
 
-// Gallery slides in DOM order
-const slides = [...document.querySelectorAll(".gallery__slide")];
+function init() {
+  // Image-to-content transition
+  const transition = new Transition();
 
-slides.forEach((slide, index) => {
-  // Make each slide keyboard-focusable and announced as a button
-  slide.setAttribute("tabindex", "0");
-  slide.setAttribute("role", "button");
+  // Slide reveals
+  const reveal = new Reveal();
 
-  // Only give up the gallery if the transition is going to hand it back
-  const open = () => {
-    if (transition.state !== "closed") return;
-
-    slider.stop();
-    transition.open(slide, index);
-  };
-
-  slide.addEventListener("click", open);
-  slide.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      open();
-    }
+  // Infinite slider
+  const slider = new Slider({
+    enabled: () => transition.state === "closed",
+    onToggle: (changes) => reveal.toggle(changes),
   });
-});
 
-// Close the transition
-document
-  .querySelector(".content__back")
-  .addEventListener("click", () => transition.close());
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") transition.close();
-});
+  // Gallery slides
+  const slides = [...document.querySelectorAll(".gallery__slide")];
+
+  slides.forEach((slide, index) => {
+    slide.setAttribute("tabindex", "0");
+    slide.setAttribute("role", "button");
+
+    slide.addEventListener("click", () => {
+      slider.stop();
+      transition.open(slide, index);
+    });
+
+    slide.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        slider.stop();
+        transition.open(slide, index);
+      }
+    });
+  });
+
+  document.querySelector(".content__back").addEventListener("click", () => transition.close());
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") transition.close();
+  });
+}

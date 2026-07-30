@@ -87,11 +87,7 @@ export default class Transition {
         }),
         0,
       )
-      .to(
-        this.previewImg,
-        { scale: 1, duration: 1.2, ease: "power4.inOut" },
-        0,
-      );
+      .to(this.previewImg, { scale: 1, duration: 1.2, ease: "power4.inOut" }, 0);
 
     // Fade the text in character by character, one line after another
     this.split.lines.forEach((line, i) => {
@@ -134,11 +130,7 @@ export default class Transition {
     this.tl = gsap
       .timeline({ onComplete: () => this.reset() })
       // Fade the text out line by line
-      .to(
-        this.split.lines,
-        { autoAlpha: 0, duration: 0.4, stagger: 0.04, ease: "power1.out" },
-        0,
-      )
+      .to(this.split.lines, { autoAlpha: 0, duration: 0.4, stagger: 0.04, ease: "power1.out" }, 0)
 
       // Morph the preview back into the thumbnail's bounds
       .add(
@@ -185,7 +177,7 @@ export default class Transition {
       wrapper: slide.querySelector(".gallery__img-wrapper"),
 
       // Title under the image
-      caption: slide.querySelector("span"),
+      caption: slide.querySelector("figcaption"),
 
       // Other slide items
       others: this.slides.filter((s) => s !== slide),
