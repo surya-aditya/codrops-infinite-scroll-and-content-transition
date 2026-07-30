@@ -1,4 +1,12 @@
-# Infinite scroll and content transition
+# Infinite Scroll Gallery and Flip Transitions in GSAP
+
+Infinite GSAP gallery with parallax scrolling, reveal animations, and Flip-powered fullscreen transitions.
+
+![Featured Image](https://generative-placeholders.glitch.me/image?width=800&height=600")
+
+[Article on Codrops](https://tympanus.net/codrops/?p=118084)
+
+[Demo](https://tympanus.net/Tutorials/InfiniteScrollGSAPGallery/)
 
 ## Installation
 
@@ -12,3 +20,17 @@ npm start
 # Build
 npm build
 ```
+
+## Credits
+
+- Images generated with Midjourney.
+
+## Misc
+
+Follow Surya: [LinkedIn](https://www.linkedin.com/in/sryaaditya/), [Instagram](https://www.instagram.com/sryaaditya_/)
+
+Follow Codrops: [X](http://www.x.com/codrops), [LinkedIn](https://www.linkedin.com/company/codrops/), [Instagram](https://www.instagram.com/codropsss/), [Facebook](https://www.facebook.com/codrops), [GitHub](https://github.com/codrops)
+
+## License
+
+[MIT](LICENSE)
