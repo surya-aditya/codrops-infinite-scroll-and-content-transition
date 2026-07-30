@@ -2,7 +2,7 @@
 
 Infinite GSAP gallery with parallax scrolling, reveal animations, and Flip-powered fullscreen transitions.
 
-![Featured Image](https://generative-placeholders.glitch.me/image?width=800&height=600")
+![Featured Image](https://tympanus.net/codrops/wp-content/uploads/2026/07/infinitescrollGSAP.png)
 
 [Article on Codrops](https://tympanus.net/codrops/?p=118084)
 
