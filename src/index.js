@@ -10,8 +10,8 @@ imagesLoaded(document.body, () => {
 });
 
 function init() {
-  // Image-to-content transition
-  const transition = new Transition();
+  // Image-to-content transition; hands the gallery back when it is done
+  const transition = new Transition({ onClose: () => slider.start() });
 
   // Slide reveals
   const reveal = new Reveal();
@@ -29,16 +29,20 @@ function init() {
     slide.setAttribute("tabindex", "0");
     slide.setAttribute("role", "button");
 
-    slide.addEventListener("click", () => {
+    // Only give up the gallery if the transition is going to hand it back
+    const open = () => {
+      if (transition.state !== "closed") return;
+
       slider.stop();
       transition.open(slide, index);
-    });
+    };
+
+    slide.addEventListener("click", open);
 
     slide.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        slider.stop();
-        transition.open(slide, index);
+        open();
       }
     });
   });
